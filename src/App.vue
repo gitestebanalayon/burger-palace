@@ -8,19 +8,16 @@
             <div class="logo-icon">🍔</div>
             <h1 class="logo-text">Burger Palace</h1>
           </div>
-          
+
           <!-- Menú desktop -->
           <ul class="nav-menu desktop-menu">
             <li v-for="item in menuItems" :key="item.id">
-              <a 
-                @click="scrollToSection(item.id)" 
-                class="nav-link"
-              >
+              <a @click="scrollToSection(item.id)" class="nav-link">
                 {{ item.name }}
               </a>
             </li>
           </ul>
-          
+
           <!-- Botón menú móvil -->
           <button @click="mobileMenuOpen = !mobileMenuOpen" class="mobile-menu-btn">
             <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -28,15 +25,12 @@
             </svg>
           </button>
         </div>
-        
+
         <!-- Menú móvil -->
         <div v-if="mobileMenuOpen" class="mobile-menu">
           <ul class="mobile-menu-list">
             <li v-for="item in menuItems" :key="item.id">
-              <a 
-                @click="scrollToSection(item.id); mobileMenuOpen = false" 
-                class="mobile-menu-link"
-              >
+              <a @click="scrollToSection(item.id); mobileMenuOpen = false" class="mobile-menu-link">
                 {{ item.name }}
               </a>
             </li>
@@ -58,19 +52,12 @@
             <p class="hero-description">
               Ingredientes frescos, sabores únicos y la mejor experiencia gastronómica te esperan en Burger Palace.
             </p>
-            <button 
-              @click="scrollToSection('menu')"
-              class="btn btn-primary hero-cta"
-            >
+            <button @click="scrollToSection('menu')" class="btn btn-primary hero-cta">
               Ver Nuestro Menú
             </button>
           </div>
           <div class="hero-image" :class="{ 'fade-in-right': isVisible.inicio }">
-            <img 
-              src="../public/gourmet-burger-prep.png"
-              alt="Hamburguesa gourmet"
-              class="hero-img"
-            >
+            <img src="../public/gourmet-burger-prep.png" alt="Hamburguesa gourmet" class="hero-img">
             <div class="hero-badge">¡Nuevo!</div>
           </div>
         </div>
@@ -86,21 +73,12 @@
             Descubre nuestras deliciosas hamburguesas preparadas con ingredientes frescos y de la más alta calidad
           </p>
         </div>
-        
+
         <div class="menu-grid">
-          <div 
-            v-for="(burger, index) in burgers" 
-            :key="burger.id"
-            class="menu-card"
-            :class="{ 'fade-in-up': isVisible.menu }"
-            :style="{ animationDelay: `${index * 0.1}s` }"
-          >
+          <div v-for="(burger, index) in burgers" :key="burger.id" class="menu-card"
+            :class="{ 'fade-in-up': isVisible.menu }" :style="{ animationDelay: `${index * 0.1}s` }">
             <div class="menu-card-image">
-              <img 
-                :src="burger.image" 
-                :alt="burger.name"
-                class="card-img"
-              >
+              <img :src="burger.image" :alt="burger.name" class="card-img">
               <div class="price-badge">
                 ${{ burger.price }}
               </div>
@@ -122,20 +100,16 @@
       <div class="container">
         <div class="about-content">
           <div class="about-image" :class="{ 'fade-in-left': isVisible.acerca }">
-            <img 
-              src="../public/spicy-jalapeno-avocado-burger.png"
-              alt="Nuestra cocina"
-              class="about-img"
-            >
+            <img src="../public/spicy-jalapeno-avocado-burger.png" alt="Nuestra cocina" class="about-img">
           </div>
           <div class="about-text" :class="{ 'fade-in-right': isVisible.acerca }">
             <h2 class="about-title">Nuestra Historia</h2>
             <p class="about-description">
-              Desde 2015, Burger Palace ha sido el hogar de las hamburguesas más deliciosas de la ciudad. 
+              Desde 2015, Burger Palace ha sido el hogar de las hamburguesas más deliciosas de la ciudad.
               Comenzamos como un pequeño negocio familiar con una gran pasión por la comida de calidad.
             </p>
             <p class="about-description">
-              Utilizamos solo ingredientes frescos y locales, carnes de la mejor calidad y recetas secretas 
+              Utilizamos solo ingredientes frescos y locales, carnes de la mejor calidad y recetas secretas
               que han sido perfeccionadas a lo largo de los años. Cada hamburguesa es preparada con amor y dedicación.
             </p>
             <div class="stats-grid">
@@ -164,7 +138,7 @@
           <h2 class="section-title">Contáctanos</h2>
           <p class="section-description">¿Tienes alguna pregunta? ¡Nos encantaría escucharte!</p>
         </div>
-        
+
         <div class="contact-content">
           <div class="contact-info" :class="{ 'fade-in-left': isVisible.contacto }">
             <h3 class="contact-title">Información de Contacto</h3>
@@ -192,40 +166,22 @@
               </div>
             </div>
           </div>
-          
+
           <div class="contact-form-wrapper" :class="{ 'fade-in-right': isVisible.contacto }">
             <form @submit.prevent="submitForm" class="contact-form">
               <div class="form-group">
                 <label class="form-label">Nombre</label>
-                <input 
-                  v-model="form.name"
-                  type="text" 
-                  class="form-input"
-                  required
-                >
+                <input v-model="form.name" type="text" class="form-input" required>
               </div>
               <div class="form-group">
                 <label class="form-label">Email</label>
-                <input 
-                  v-model="form.email"
-                  type="email" 
-                  class="form-input"
-                  required
-                >
+                <input v-model="form.email" type="email" class="form-input" required>
               </div>
               <div class="form-group">
                 <label class="form-label">Mensaje</label>
-                <textarea 
-                  v-model="form.message"
-                  rows="4" 
-                  class="form-textarea"
-                  required
-                ></textarea>
+                <textarea v-model="form.message" rows="4" class="form-textarea" required></textarea>
               </div>
-              <button 
-                type="submit"
-                class="btn btn-primary form-submit"
-              >
+              <button type="submit" class="btn btn-primary form-submit">
                 Enviar Mensaje
               </button>
             </form>
@@ -247,7 +203,7 @@
               Las mejores hamburguesas de la ciudad, preparadas con amor y ingredientes frescos.
             </p>
           </div>
-          
+
           <div class="footer-section">
             <h4 class="footer-title">Enlaces Rápidos</h4>
             <ul class="footer-links">
@@ -257,7 +213,7 @@
               <li><a href="#contacto" class="footer-link">Contacto</a></li>
             </ul>
           </div>
-          
+
           <div class="footer-section">
             <h4 class="footer-title">Horarios</h4>
             <div class="footer-hours">
@@ -265,17 +221,20 @@
               <p>Sábado - Domingo: 10:00 AM - 12:00 AM</p>
             </div>
           </div>
-          
+
           <div class="footer-section">
             <h4 class="footer-title">Síguenos</h4>
             <div class="social-links">
-              <a href="#" class="social-link" style="font-size: 25px; color: white;"><i class="fa-brands fa-facebook"></i></a>
-              <a href="#" class="social-link" style="font-size: 25px; color: white;"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" class="social-link" style="font-size: 25px; color: white;"><i class="fa-brands fa-tiktok"></i></a>
+              <a href="#" class="social-link" style="font-size: 25px; color: white;"><i
+                  class="fa-brands fa-facebook"></i></a>
+              <a href="#" class="social-link" style="font-size: 25px; color: white;"><i
+                  class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-link" style="font-size: 25px; color: white;"><i
+                  class="fa-brands fa-tiktok"></i></a>
             </div>
           </div>
         </div>
-        
+
         <div class="footer-bottom">
           <p>&copy; {{ anio }} Burger Palace. Todos los derechos reservados.</p>
         </div>
@@ -320,49 +279,49 @@ const burgers = [
     name: 'Classic Burger',
     description: 'Carne de res, lechuga, tomate, cebolla y nuestra salsa especial',
     price: 12.99,
-    image: '../public/classic-burger.png'
+    image: './classic-burger.png' // Ruta CORRECTA
   },
   {
     id: 2,
     name: 'Cheese Deluxe',
     description: 'Doble carne, queso cheddar, bacon crujiente y salsa BBQ',
     price: 15.99,
-    image: '../public/double-cheeseburger-pickles.png'
+    image: './double-cheeseburger-pickles.png'
   },
   {
     id: 3,
     name: 'Veggie Supreme',
     description: 'Hamburguesa vegetal, aguacate, brotes y mayonesa de hierbas',
     price: 11.99,
-    image: '../public/veggie-burger.jpg'
+    image: './veggie-burger.jpg'
   },
   {
     id: 4,
     name: 'Spicy Jalapeño',
     description: 'Carne picante, jalapeños, queso pepper jack y salsa chipotle',
     price: 14.99,
-    image: '../public/spicy-jalapeno-avocado-burger.png'
+    image: './spicy-jalapeno-avocado-burger.png'
   },
   {
     id: 5,
     name: 'Mushroom Swiss',
     description: 'Carne de res, hongos salteados, queso suizo y cebolla caramelizada',
     price: 13.99,
-    image: '../public/mushroom-swiss-burger.png'
+    image: './mushroom-swiss-burger.png'
   },
   {
     id: 6,
     name: 'BBQ Ranch',
     description: 'Carne ahumada, aros de cebolla, queso cheddar y salsa ranch BBQ',
     price: 16.99,
-    image: '../public/bbq-bacon-burger.png'
+    image: './bbq-bacon-burger.png'
   }
 ]
 
 // Funciones
 const handleScroll = () => {
   scrolled.value = window.scrollY > 50
-  
+
   // Detectar visibilidad de secciones para animaciones
   const sections = ['inicio', 'menu', 'acerca', 'contacto']
   sections.forEach(section => {
@@ -957,35 +916,35 @@ onUnmounted(() => {
   .desktop-menu {
     display: flex;
   }
-  
+
   .mobile-menu-btn {
     display: none;
   }
-  
+
   .hero-content {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .hero-title {
     font-size: 4rem;
   }
-  
+
   .section-title {
     font-size: 3rem;
   }
-  
+
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .about-content {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .contact-content {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .footer-content {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -995,7 +954,7 @@ onUnmounted(() => {
   .hero-title {
     font-size: 4.5rem;
   }
-  
+
   .menu-grid {
     grid-template-columns: repeat(3, 1fr);
   }
