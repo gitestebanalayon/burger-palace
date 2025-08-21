@@ -11,9 +11,10 @@ export default defineConfig({
     vueDevTools(),
   ],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    },
-    base: process.env.NODE_ENV === 'production' ? '/nombre-repositorio/' : '/',
+    plugins: [vue()],
+    base: '/burger-palace/',
+    build: {
+      outDir: 'dist'
+    }
   },
 })
