@@ -141,3 +141,10 @@ html {
     font-size: 14px;
   }
 }
+
+@media (max-width: 419px) {
+  .hero-title{
+    font-size: 2rem !important;
+  }
+}
+

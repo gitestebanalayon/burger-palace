@@ -533,6 +533,7 @@ onUnmounted(() => {
 
 .hero-image {
   position: relative;
+  width: 100%;
 }
 
 .hero-img {
